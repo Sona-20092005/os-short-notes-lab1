@@ -1,0 +1,67 @@
+==================
+Memory management - Allocating Dynamic Memory
+==================
+
+#include <stdlib.h>  ----- contains malloc(), calloc(), realloc(), free()
+#include <alloca.h> ----- contains alloca()
+
+--------------------------------
+
+void* malloc (size_t size);
+
+Example
+
+char *p;
+p = (char*)malloc (4096);
+if (!p)
+perror ("malloc");
+return −1;
+
+*** See HW5 Assignment 1,3-6*** 
+
+--------------------------------
+
+Allocating Arrays
+void * calloc (size_t nr, size_t size);
+
+Example
+int *x;
+int *y;
+x = malloc (50 * sizeof (int));
+y = calloc (50, sizeof (int));
+
+*** See HW5 Assignment 2*** 
+
+--------------------------------
+
+#include <stdlib.h>
+void free (void *ptr);
+
+Memory needs to be freed
+
+--------------------------------
+
+Resizing Allocations
+
+void * realloc (void *ptr, size_t size);
+
+-> A successful call to realloc() resizes the region of memory pointed at by ptr
+to a new size of size bytes.
+->  If ptr is NULL, the result of the operation is the same as a fresh malloc()
+-> If size is 0, the effect is the same as an invocation of free() on ptr
+-> old memory in ptr is freed if realloc() is successful
+
+*** See HW5 Assignment 3,4*** 
+
+--------------------------------
+
+Stack-Based Allocations
+
+void * alloca (size_t size);
+
+->  Usage is identical to malloc(), but you do not need to (indeed, must not) free the allocated memory.
+->  Upon return, the memory allocated with alloca() is automatically freed as the stack unwinds back to the invoking function.
+->  This means you cannot use this memory once the function that calls alloca() returns!
+
+
+

@@ -1,0 +1,27 @@
+Sample code
+--------------------------------
+#include <stdio.h>
+
+int main() {
+
+int a = 5, b = 7, c;
+c = a + b;
+printf(“c = %d\n”, c);
+char str[] = “Hello World”;
+printf(“%s\n”, str);
+int x = 5;
+int *p = &x;
+printf(“%p\n”, &x);
+printf(“%p\n”, p);
+printf(“%d\n”, x);
+printf(“%d\n”, *p);
+
+
+return 0;
+}
+	
+
+perror ("execl") ----- can be used to print an error message
+
+*** See HW1 *** 
+
